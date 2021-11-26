@@ -1,12 +1,17 @@
 from Design import *
+import time
+from PyQt5.QtCore import QTime, QTimer
 
 if __name__ == "__main__":
     import sys
+    import getch
+
     app = QtWidgets.QApplication(sys.argv)
     BoilerSystem = QtWidgets.QMainWindow()
     ui = Ui_BoilerSystem()
     ui.setupUi(BoilerSystem)
     BoilerSystem.show()
+
 
     #Методы обработки кнопок бокового меню
     def M_G():
@@ -24,4 +29,29 @@ if __name__ == "__main__":
     ui.Menu_stroke_button.clicked.connect(M_S)
     ui.Menu_solutions_button.clicked.connect(M_Sol)
 
+    from PyQt5.QtCore import QTime, QTimer
+    from PyQt5.QtWidgets import QApplication, QLCDNumber
+
+    #Класс часов
+    class Clock(QLCDNumber):
+
+        def __init__(self, parent=None):
+            super(Clock, self).__init__(parent)
+            #Создание объекта таймера
+            timer = QTimer(self)
+            timer.timeout.connect(self.showTime)
+            timer.start(1000) #одна секунда
+            self.showTime()
+
+        def showTime(self):
+            time = QTime.currentTime()
+            text = time.toString('hh:mm:ss')
+            # if (time.second() % 2) == 0:
+            text = text[:2] + ':' + text[3:5] + ':' + text[6:]
+            ui.Time_lable.setText(text)
+
+
+
+    clock = Clock()
+    clock.showTime()
     sys.exit(app.exec_())

@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore
 
 
 class Ui_BoilerSystem(object):
@@ -260,7 +261,7 @@ class Ui_BoilerSystem(object):
         self.Call_service.setText(_translate("BoilerSystem", "Вызвать сервис"))
         self.Enter_electricity_button.setText(_translate("BoilerSystem", "Подключить электричество"))
         self.lab_tm_title.setText(_translate("BoilerSystem", "Время:"))
-        self.Time_lable.setText(_translate("BoilerSystem", "ХХ.ХХ.ХХХХ"))
+        self.Time_lable.setText(_translate("BoilerSystem", "00:00:00"))
         self.Notification_line.setText(_translate("BoilerSystem", "Уведомление:"))
 
 
