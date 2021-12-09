@@ -1,10 +1,7 @@
 from Design import *
-import time
-from PyQt5.QtCore import QTime, QTimer
 
 if __name__ == "__main__":
     import sys
-    import getch
 
     app = QtWidgets.QApplication(sys.argv)
     BoilerSystem = QtWidgets.QMainWindow()
@@ -12,16 +9,13 @@ if __name__ == "__main__":
     ui.setupUi(BoilerSystem)
     BoilerSystem.show()
 
-
     #Методы обработки кнопок бокового меню
     def M_G():
         ui.Application_pages.setCurrentWidget(ui.observation_)
         ui.Title_of_window.setText("Окно графичекого представления информации")
-
     def M_S():
         ui.Application_pages.setCurrentWidget(ui.parameter_)
         ui.Title_of_window.setText("Окно параметров")
-
     def M_Sol():
         ui.Application_pages.setCurrentWidget(ui.Solutions_page)
         ui.Title_of_window.setText("Окно решений")
@@ -29,9 +23,9 @@ if __name__ == "__main__":
     ui.Menu_stroke_button.clicked.connect(M_S)
     ui.Menu_solutions_button.clicked.connect(M_Sol)
 
+    #блок для часов
     from PyQt5.QtCore import QTime, QTimer
-    from PyQt5.QtWidgets import QApplication, QLCDNumber
-
+    from PyQt5.QtWidgets import QLCDNumber
     #Класс часов
     class Clock(QLCDNumber):
 
